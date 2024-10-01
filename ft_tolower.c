@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:50:19 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/24 17:13:17 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:17:06 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
-		return c + 32;
-	else	
-		return c;
+		return (c + 32);
+	else
+		return (c);
 }

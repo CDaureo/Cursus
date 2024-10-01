@@ -6,29 +6,29 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:49:48 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/24 17:26:52 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:10:18 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
 		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
 		{
-			return (unsigned char)s1[i] - (unsigned char)s2[i];
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		}
 		i++;
 	}
 	return (0);
 }
 /*
-int main(void) {
+int	main(void) {
     const char *str1 = "";
     const char *str2 = "Hola, Mand!";
 
@@ -63,5 +63,5 @@ int main(void) {
 
     }
 
-    return 0;
+    return (0);
 }*/

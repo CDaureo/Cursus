@@ -6,22 +6,22 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:46:20 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/24 17:38:43 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:18:02 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_bzero(void *destination, size_t num_size)
+void	*ft_bzero(void *destination, size_t num_size)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*re_dest;
 
 	i = 0;
-	unsigned char *re_dest = (unsigned char*) destination;
-
+	re_dest = (unsigned char *) destination;
 	while (i < num_size)
 	{
-		re_dest[i] =  0;
+		re_dest[i] = 0;
 		i++;
 	}
 	return (destination);

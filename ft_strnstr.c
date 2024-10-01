@@ -6,28 +6,32 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:49:59 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/24 17:13:37 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:10:39 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i = 0;
-	size_t j = 0;
-	
-	//COMPROBACION DE MISMO TEXTO
-	if (little[0] == '\0') {
-		return (char *)big;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	if (little[0] == '\0')
+	{
+		return ((char *)big);
 	}
-	//
-	while (big[i] != '\0' && i < len) {
+	while (big[i] != '\0' && i < len)
+	{
 		j = 0;
-		while (big[i + j] == little[j] && (i + j) < len) {
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
 			j++;
-			if (little[j] == '\0') {
-				return (char *)&big[i];
+			if (little[j] == '\0')
+			{
+				return ((char *)&big[i]);
 			}
 		}
 		i++;
@@ -35,7 +39,7 @@ char *ft_strnstr(const char *big, const char *little, size_t len)
 	return (0);
 }
 /*
-int main(void) {
+int	main(void) {
     const char *big = "Hola, este es un ejemplo.";
     const char *little = "este";
 
@@ -61,6 +65,6 @@ int main(void) {
         printf("Subcadena vacía encontrada: %s\n", result);
     }
 
-    return 0;
+    return (0);
 }
 */

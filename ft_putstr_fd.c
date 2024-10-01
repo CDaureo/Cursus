@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:13:02 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/30 18:24:49 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:58:01 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	size;
+	int	i;
+
 	if (!s)
-        return;
-	int size = ft_strlen(s);
-	int i; 
+		return ;
+	size = ft_strlen(s);
 	i = 0;
 	while (i < size)
 	{
@@ -27,7 +29,7 @@ void	ft_putstr_fd(char *s, int fd)
 }
 
 /*
-int main() {
+int	main(void) {
     // Escribir en stdout (la consola)
     ft_putstr_fd("Hola, mundo!\n", 1);
 
@@ -38,6 +40,6 @@ int main() {
         close(fd);
     }
     
-    return 0;
+    return (0);
 }
 */

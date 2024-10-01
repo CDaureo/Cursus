@@ -6,14 +6,16 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:30:44 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/01 15:56:54 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:57:58 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
+	char	digit;
+
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
@@ -28,14 +30,16 @@ void ft_putnbr_fd(int n, int fd)
 	{
 		ft_putnbr_fd(n / 10, fd);
 	}
-	char digit = (n % 10) + '0';
+	digit = (n % 10) + '0';
 	write(fd, &digit, 1);
 }
 /*
-int main(void)
+int	main(void)
 {
+	int	fd;
+
     // Abrimos un archivo en modo escritura para usar su file descriptor
-    int fd = open("output.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
+    fd = open("output.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
     
     if (fd == -1)
     {
@@ -43,7 +47,6 @@ int main(void)
         write(1, "Error abriendo el archivo\n", 26);
         return (1);
     }
-
     // Llamamos a la función con varios valores para probarla
     ft_putnbr_fd(42, fd);     // Debe escribir "42"
     write(fd, "\n", 1);       // Escribir un salto de línea
@@ -55,7 +58,6 @@ int main(void)
     write(fd, "\n", 1);
     ft_putnbr_fd(-2147483648, fd); // Debe escribir "-2147483648"
     write(fd, "\n", 1);
-
     // Cerramos el archivo
     close(fd);
     

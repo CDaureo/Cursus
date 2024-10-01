@@ -6,28 +6,26 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:56:45 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/01 15:50:54 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:20:48 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t t_size;
-	void *ptr;
-	
+	size_t	t_size;
+	void	*ptr;
+
 	t_size = nmemb * size;
-	//Asigno la cantidad de memoria con malloc en el puntero ptr.
 	ptr = malloc(t_size);
-	if (ptr == 	NULL)
+	if (ptr == NULL)
 	{
 		return (NULL);
 	}
 	ft_memset(ptr, 0, t_size);
 	return (ptr);
 }
-
 /*
 int main(void) {
     size_t nmemb = 5;

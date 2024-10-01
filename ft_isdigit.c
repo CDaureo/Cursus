@@ -6,16 +6,16 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:47:36 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/24 16:56:29 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:56:54 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int digit)
+int	ft_isdigit(int digit)
 {
 	if (digit >= '0' && digit <= '9')
 		return (1);
 	else
-		return (0); 
+		return (0);
 }

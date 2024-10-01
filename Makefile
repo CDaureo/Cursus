@@ -15,7 +15,7 @@ all: $(NAME)
 
 # Regla para crear la librería estática
 $(NAME): $(OBJ)
-	ar rcs -rc $(NAME) $(OBJ)
+	ar -rc $(NAME) $(OBJ)
 
 # Regla para compilar los archivos .o a partir de los .c
 %.o: %.c
