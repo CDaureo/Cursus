@@ -6,12 +6,13 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:57:03 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/26 17:46:45 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:19:15 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_strlen.c"
+
 char *ft_strdup(const char *s)
 {
 	size_t i;

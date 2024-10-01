@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:03:31 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/30 18:35:20 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:23:12 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 
 
-int	ft_strlen(char *str);
+int	ft_strlen(const char  *str);
 int ft_isalnum(int c);
 int ft_isdigit(int c);
 int ft_isalpha(int c);
@@ -51,4 +51,9 @@ void ft_putchar_fd(char c, int fd);
 void ft_putstr_fd(char *s, int fd);
 void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
+char **ft_split(char const *s, char c);
+char *ft_strtrim(char const *s1, char const *set);
+char *ft_strjoin(char const *s1, char const *s2);
+char	*ft_itoa(int n);
+
 #endif

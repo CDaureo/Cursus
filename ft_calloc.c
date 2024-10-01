@@ -6,12 +6,11 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:56:45 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/26 14:01:40 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:50:54 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include  "ft_memset.c"
 
 void *ft_calloc(size_t nmemb, size_t size)
 {

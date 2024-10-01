@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 15:44:25 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/30 18:38:15 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:56:02 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return NULL;
-	int i;
+	size_t i;
 	i = 0;
-	size_t len = (size_t) ft_strlen(s); 
+	size_t len = (size_t) ft_strlen((char *)s); 
 	char *str;
 	str = (char *) malloc(len + 1);
 	while (i < len)

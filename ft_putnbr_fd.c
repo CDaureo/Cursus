@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:30:44 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/30 18:30:48 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:56:54 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void ft_putnbr_fd(int n, int fd)
 	char digit = (n % 10) + '0';
 	write(fd, &digit, 1);
 }
-
+/*
 int main(void)
 {
     // Abrimos un archivo en modo escritura para usar su file descriptor
@@ -61,3 +61,4 @@ int main(void)
     
     return (0);
 }
+*/

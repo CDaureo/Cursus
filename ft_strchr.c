@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:49:06 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/24 17:41:50 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:38:27 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,24 @@
 char *ft_strchr(const char *s, int c)
 {
 	int i;
-
+    unsigned char uc;
+	uc = (unsigned char) c; 
 	i = 0;
 
 	while (s[i] != '\0')
 	{
-		if (s[i] == (char) c)
+		if (s[i] == uc)
 		{
 			return (char *)(&s[i]);
 		}		
 		else 
 			i++;		
 	}
-	if (c == '\0')
+	if (uc == '\0')
 	{
 		return (char *)(&s[i]);
 	}
-	return (0);
+	return (NULL);
 }
 /*
 int main (void)

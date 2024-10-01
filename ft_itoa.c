@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 13:40:13 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/30 13:40:13 by cdaureo-         ###   ########.fr       */
+/*   Created: 2024/10/01 17:10:26 by cdaureo-          #+#    #+#             */
+/*   Updated: 2024/10/01 17:10:26 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-//Vemos que tan largo es el Numero.
 static int ft_check_len(int n)
 {
 	int len;
@@ -28,11 +27,11 @@ static int ft_check_len(int n)
 	
 }
 //Funcion Principal
-char	*ft_itoa(int n) 
+char	*ft_itoa(int n)
 {
 	int len;
 	long num;
-	char *str; //Esto es para que pueda ser imprimible y convertimos en int a char
+	char *str; 
 	
 	num = n;
 	len = ft_check_len(num);
@@ -60,8 +59,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-#include <stdio.h>
-
+/*
 int main(void) {
     int numbers[] = {0, 123, -123, 2147483647, -2147483648};
     char *result;
@@ -79,3 +77,4 @@ int main(void) {
 
     return 0;
 }
+*/

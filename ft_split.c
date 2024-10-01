@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
+
 //Contador de palabras
 static int ft_count_words(char const *s, char c)
 {
@@ -107,8 +108,7 @@ char **ft_split(char const *s, char c)
     return result;
 }
 
-
-int main(void)
+/*int main(void)
 {
     char **result;
     char *str = "Hola,,esto,,es,una,prueba,,de,split,";
@@ -144,4 +144,4 @@ int main(void)
     free(result); // Finalmente liberamos el array de punteros
 
     return (0);
-}
+}*/
