@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:03:31 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/01 20:17:54 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:24:24 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <limits.h>
 
 int		ft_strlen(const char *str);
 int		ft_isalnum(int c);

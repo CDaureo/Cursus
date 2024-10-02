@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2024/09/27 15:58:38 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/09/27 15:58:38 by cdaureo-         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/02 13:39:00 by cdaureo-          #+#    #+#             */
+/*   Updated: 2024/10/02 13:39:00 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +98,8 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	int		words;
 
+	if (!s)
+		return (NULL);
 	words = ft_count_words(s, c);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!s || !result)

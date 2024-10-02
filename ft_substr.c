@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:47:14 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/02 12:54:03 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:24:17 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ size_t	ft_adjust_len(const char *s, unsigned int start, size_t len)
 	size_t	original_len;
 
 	original_len = ft_strlen(s);
+	if (start >= original_len)
+		return (0);
 	if (len > original_len - start)
 		return (original_len - start);
 	return (len);
@@ -51,11 +53,12 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	}
 	len = ft_adjust_len (s, start, len);
 	substring = ft_allocate_substring(len);
-	while (i < len)
+	if (!substring)
+		return (NULL);
+	while (i < len && s[start + i] != '\0')
 	{
 		substring[i] = s[start + i];
 		i++;
 	}
-	substring[i] = '\0';
-	return (substring);
+	return (substring[i] = '\0', substring);
 }
