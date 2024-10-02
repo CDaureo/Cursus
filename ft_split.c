@@ -69,24 +69,14 @@ static void	ft_free_split(char **split, int words)
 	ft_free_split(split, words - 1);
 }
 
-// Función principal
-char	**ft_split(char const *s, char c)
+int	ft_fill_result(char **result, const char *s, char c, int words)
 {
-	char	**result;
-	int		words;
-	int		i;
-	int		start;
-	int		end;
+	int	i;
+	int	start;
+	int	end;
 
 	i = 0;
 	start = 0;
-	end = 0;
-	if (!s)
-		return (NULL);
-	words = ft_count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!result)
-		return (NULL);
 	while (i < words)
 	{
 		while (s[start] && s[start] == c)
@@ -98,49 +88,25 @@ char	**ft_split(char const *s, char c)
 		if (!result[i])
 		{
 			ft_free_split(result, i);
-			return (NULL);
+			return (0);
 		}
 		i++;
 		start = end;
 	}
-	result[i] = NULL;
-	return (result);
+	return (1);
 }
 
-/*int main(void)
+char	**ft_split(char const *s, char c)
 {
-    char **result;
-    char *str = "Hola,,esto,,es,una,prueba,,de,split,";
-    char delimiter = ',';
-    int i = 0;
+	char	**result;
+	int		words;
 
-    // Llamamos a ft_split para dividir la cadena
-    result = ft_split(str, delimiter);
-
-    // Verificamos si se pudo reservar memoria
-    if (!result)
-    {
-        printf("Error en la asignación de memoria\n");
-        return (1);
-    }
-
-    // Imprimimos las subcadenas resultantes
-    printf("Cadena original: '%s'\n", str);
-    printf("Subcadenas separadas por '%c':\n", delimiter);
-    while (result[i] != NULL)
-    {
-        printf("Subcadena %d: '%s'\n", i + 1, result[i]);
-        i++;
-    }
-
-    // Liberamos la memoria asignada para el array de subcadenas
-    i = 0;
-    while (result[i])
-    {
-        free(result[i]); // Liberamos cada subcadena
-        i++;
-    }
-    free(result); // Finalmente liberamos el array de punteros
-
-    return (0);
-}*/
+	words = ft_count_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!s || !result)
+		return (NULL);
+	if (!ft_fill_result(result, s, c, words))
+		return (NULL);
+	result[words] = (NULL);
+	return (result);
+}
