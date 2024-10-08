@@ -19,8 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len2;
 	size_t	total_len;
 
-	len1 = strlen(s1);
-	len2 = strlen(s2);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
 	if (!s1 || !s2)
 		return (NULL);
 	total_len = len1 + len2;
