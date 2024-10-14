@@ -8,7 +8,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME) Libft
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Creando Libreria estatica"
@@ -17,20 +17,13 @@ $(NAME): $(OBJ)
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-Libft:
-	@$(MAKE) -C ../Libft
 
 clean:
-	@echo "Limpiando... (sin .a)"
-	@rm -f $(OBJ)
-	@echo "Entrando en Directorio libft"
-	@$(MAKE) -C ../Libft clean
+	rm -f $(OBJ)
 
 fclean: clean
-	@echo "Limpiando..."
 	@rm -f $(NAME)
-	@$(MAKE) -C ../Libft fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re Libft
+.PHONY: all clean fclean re
