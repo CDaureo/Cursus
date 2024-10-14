@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:05:42 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/14 17:43:37 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:53:26 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_printf(char const *format, ...)
 	char c;
 	char *s;
 	void *p;
+	int	d;
 	while (*format)
 	{
 		if (*format == '%')
@@ -42,7 +43,8 @@ int	ft_printf(char const *format, ...)
 			}
 			if (*format == 'd')
 			{
-				/* code */
+				d = va_arg(args, int);
+				ft_putnbr_fd(d,1);
 			}			
 			if (*format == 'i')
 			{
