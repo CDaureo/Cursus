@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_string.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 19:10:22 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/14 17:31:02 by cdaureo-         ###   ########.fr       */
+/*   Created: 2024/09/23 16:49:38 by cdaureo-          #+#    #+#             */
+/*   Updated: 2024/10/15 12:22:50 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-
-void	ft_put_string(char * s)
+int	ft_strlen(const char *str)
 {
-	if (s)
+	int	counter;
+
+	counter = 0;
+	while (str[counter] != '\0')
 	{
-		while (*s)
-		{
-			ft_putchar(*s);
-			s++;
-		}
+		counter++;
 	}
+	return (counter);
 }

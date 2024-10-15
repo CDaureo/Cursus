@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
+/*   ft_handle_pointer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 17:33:44 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/14 17:43:16 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:38:08 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "printf.h"
 
-static void ft_putnbr_hex(unsigned long num)
+
+
+static int ft_putnum_hex(unsigned long num)
 {
-	const char *hex = "0123456789abcdef";
-	void *p;
+	const char *hex;
+	hex = "0123456789abcdef";
+	int c;
+	c = 0;
+	
 	if(num >= 16)
-		ft_putnbr_hex(num/16);
+		c =+ ft_putnum_hex(num/16);
 	ft_putchar(hex[num%16]);
+	return (c);
 }
-void ft_put_in_pointer(void *p)
+int ft_put_in_pointer(void *p)
 {
-	ft_put_string("0x");
-	ft_putnbr_hex((unsigned long)p);
+	int c;
+	c = 0;
+	c =+ ft_put_string("0x");
+	c =+ ft_putnum_hex((unsigned long)p);
+	return (c);
 }
