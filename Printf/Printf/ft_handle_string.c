@@ -6,23 +6,31 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:10:22 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/15 12:52:19 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:58:47 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_put_string(char * s)
+int	ft_put_string(char *s)
 {
-	int c;
-	c = ft_strlen(s);
-	if (s)
+	int	i;
+	int	j;
+	int	res;
+
+	i = 0;
+	j = 0;
+	if (!s)
+		return (ft_put_string("(null)"));
+	while (s[i] != '\0')
 	{
-		while (*s)
+		res = ft_putchar(s[i]);
+		if (res == -1)
 		{
-			ft_putchar(*s);
-			s++;
+			return (-1);
 		}
+		j += res;
+		i++;
 	}
-	return (c);
+	return (j);
 }

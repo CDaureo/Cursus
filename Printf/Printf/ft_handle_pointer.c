@@ -6,31 +6,32 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 17:33:44 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/15 12:38:08 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:58:03 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "printf.h"
+#include "printf.h"
 
-
-
-static int ft_putnum_hex(unsigned long num)
+int	ft_put_in_pointer(void *p)
 {
-	const char *hex;
-	hex = "0123456789abcdef";
-	int c;
-	c = 0;
-	
-	if(num >= 16)
-		c =+ ft_putnum_hex(num/16);
-	ft_putchar(hex[num%16]);
-	return (c);
-}
-int ft_put_in_pointer(void *p)
-{
-	int c;
-	c = 0;
-	c =+ ft_put_string("0x");
-	c =+ ft_putnum_hex((unsigned long)p);
-	return (c);
+	unsigned long long	ptr;
+	char				str[19];
+	const char			*hex = "0123456789abcdef";
+	int					i;
+	int					length;
+
+	if (p == NULL)
+		return (ft_put_string("(nil)"));
+	i = 18;
+	ptr = (unsigned long long)p;
+	str[i--] = '\0';
+	while (ptr != 0)
+	{
+		str[i--] = hex[ptr % 16];
+		ptr /= 16;
+	}
+	str[i--] = 'x';
+	str[i--] = '0';
+	length = ft_put_string(&str[i + 1]);
+	return (length);
 }

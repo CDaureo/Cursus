@@ -6,13 +6,13 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:24:36 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/15 11:08:42 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:01:55 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }

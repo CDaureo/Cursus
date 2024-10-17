@@ -12,12 +12,15 @@
 
 #include "printf.h"
 
-int ft_putnbr_unsigned_recursive(unsigned int n)
+int	ft_putnbr_unsigned_recursive(unsigned int n)
 {
-	int c;
+	int	c;
+
 	c = 0;
-    if (n > 9)
-        c += ft_putnbr_unsigned_recursive(n / 10);
-    ft_putchar((n % 10) + '0');
+	if (n > 9)
+	{
+		c = c + ft_putnbr_unsigned_recursive(n / 10);
+	}
+	ft_putchar((n % 10) + '0');
 	return (c + 1);
 }

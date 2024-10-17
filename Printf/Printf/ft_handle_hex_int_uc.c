@@ -14,12 +14,15 @@
 
 int	ft_putnbr_hex_uc(unsigned long num)
 {
-	int c;
+	int			c;
+	const char	*hex;
+
 	c = 0;
-	const char *hex;
 	hex = "0123456789ABCDEF";
-	if(num >= 16)
-		c =+ ft_putnbr_hex(num/16);
-	ft_putchar(hex[num%16]);
-	return (c+1);
+	if (num >= 16)
+	{
+		c = c + ft_putnbr_hex_uc(num / 16);
+	}
+	ft_putchar(hex[num % 16]);
+	return (c + 1);
 }
