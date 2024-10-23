@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:59:53 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/23 13:36:43 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:02:55 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static char	*reader(int fd, char *str_storage)
 	i = read(fd, buff, BUFFER_SIZE);
 	while (i > 0)
 	{
+		buff[i] = '\0';
 		temp = ft_strjoin(str_storage, buff);
 		str_storage = temp;
 		if (ft_strchr(buff, '\n'))
