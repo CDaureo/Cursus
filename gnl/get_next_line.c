@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:59:53 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/21 15:46:32 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:36:43 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,11 @@ static char	*cleaner(char *str_storage)
 {
 	char	*new_storage;
 	char	*ptr;
-	size_t	len;
 
 	ptr = ft_strchr(str_storage, '\n');
-	len = ft_strlen(ptr + 1);
-	new_storage = (char *)malloc(sizeof(char) * (len + 1));
-
 	if (!ptr || !*(ptr + 1))
 		return (free(str_storage), NULL);
-
-	if (!new_storage)
-		return (free(str_storage), NULL);
-	ft_memcpy(new_storage, ptr + 1, len + 1);
+	new_storage = ft_strdup(ptr + 1);
 	free(str_storage);
 	return (new_storage);
 }
@@ -70,20 +63,20 @@ static char	*cleaner(char *str_storage)
  */
 static char	*reader(int fd, char *str_storage)
 {
-	size_t	i;
+	ssize_t	i;
 	char	*buff;
 	char	*temp;
 
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
-		return (free(buff), NULL);
+		return (free(str_storage), NULL);
 	i = read(fd, buff, BUFFER_SIZE);
 	while (i > 0)
 	{
 		temp = ft_strjoin(str_storage, buff);
 		str_storage = temp;
 		if (ft_strchr(buff, '\n'))
-			break;
+			break ;
 		i = read(fd, buff, BUFFER_SIZE);
 	}
 	free(buff);
@@ -101,9 +94,9 @@ static char	*reader(int fd, char *str_storage)
  */
 char	*get_next_line(int fd)
 {
-	static char *str_storage;
+	static char *str_storage = NULL;
 	char *line;
-	str_storage = NULL;
+
 
 	if (fd < 0 || BUFFER_SIZE < 0)
 		return (NULL);
@@ -111,11 +104,13 @@ char	*get_next_line(int fd)
 	{
 		str_storage = reader(fd ,str_storage);
 	}
+	if (!str_storage)
+		return (NULL);
+	
 	line = new_line(str_storage);
 	if (!line)
 	{
-		free(str_storage);
-		return (NULL);
+		return (free(str_storage), str_storage = NULL, NULL);
 	}
 	str_storage = cleaner(str_storage);
 	return (line);

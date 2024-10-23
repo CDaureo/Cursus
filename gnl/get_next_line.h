@@ -6,7 +6,7 @@
 /*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:55:02 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/21 15:46:14 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:30:51 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+#include <stdlib.h> 
+#include <unistd.h>  
+#include <stddef.h>  
+#include <string.h>
 
-static char	*new_line(char *str_storage);
-static char	*cleaner(char *str_storage);
-static char	*read_buffer(int fd, char *str_storage);
 char	*get_next_line(int fd);
 size_t ft_strlen(const char *);
-static char *ft_strchr(char *s, int c);
 char *ft_strjoin(char *str_storage, char *buff);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-
+char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strchr(char *s, int c);
 
 
 # endif
