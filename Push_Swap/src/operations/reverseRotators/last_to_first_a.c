@@ -14,18 +14,17 @@
 
 void	rra(c_stack **a)
 {
-	c_stack	*prev;
-	c_stack	*last;
+	c_stack	*tmp;
 
-	if (!a || !*a || !(*a)->next) // Si hay menos de 2 elementos, no hace nada
-		return ;
-	prev = NULL;
-	last = *a;
-	while (last->next)  // Recorremos hasta el último nodo
+	if (*a && (*a)->next)
 	{
-		prev = last;  // Guardamos el penúltimo nodo
-		last = last->next;
+		tmp = *a;
+		while (tmp->next->next)
+			tmp = tmp -> next;
+		tmp ->next->next = *a;
+		*a = tmp -> next;
+		tmp->next = NULL;
+		write (1, "rra\n", 4);
 	}
-	prev->next = NULL;  // El penúltimo nodo ahora es el último
-	add_first_stack(a, last);  // Movemos el último nodo al frente
+
 }

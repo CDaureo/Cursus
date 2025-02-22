@@ -14,63 +14,32 @@
 #include "../includes/stack_utils.h"
 
 
-
-c_stack *new_node(int value)
-{
-	c_stack *node = malloc(sizeof(c_stack));
-	if (!node)
-		return NULL;
-	node->value = value;
-	node->next = NULL;
-	return node;
-}
-
-int is_sorted(c_stack *stack)
-{
-    if (!stack || !stack->next)
-        return 1;  // Si la pila tiene 0 o 1 elemento, ya está ordenada
-
-    while (stack && stack->next)
-    {
-        if (stack->value > stack->next->value)
-            return 0;  // Si encontramos un valor mayor que el siguiente, no está ordenada
-        stack = stack->next;
-    }
-    return 1;  // Si no encontramos desorden, la pila está ordenada
-}
-// Función para añadir un nuevo elemento a la pila
-void push(c_stack **stack, int value)
-{
-    c_stack *new_node = malloc(sizeof(c_stack));
-    if (!new_node)
-        exit(1);  // Manejar error en caso de no poder asignar memoria
-    new_node->value = value;
-    new_node->next = *stack;
-    *stack = new_node;
-}
-
 // Función para cargar los valores en la pila desde los argumentos
 c_stack *load_stack(int argc, char **argv)
 {
     c_stack *stack = NULL;
     int i;
-
-    for (i = argc - 1; i > 0; i--)  // Empezamos desde el último argumento
-    {
-        int value = atoi(argv[i]);  // Convertir el argumento a un entero
-        push(&stack, value);
-    }
+	int val;
+    i = argc - 1;
+    while (i > 0)
+	{
+		val = ft_itoa(argv[i]);
+		push(&stack, val);
+		i--;
+	}
+	
     return stack;
 }
-// Function to print the stack (for debugging purposes)
-void	print_stack(c_stack *stack)
-{
+void free_stack(c_stack *stack)
+{   
+    c_stack *tmp;
     while (stack)
     {
-        printf("%d ", stack->value);
+        tmp = stack;
         stack = stack->next;
+        free(tmp);
     }
-    printf("\n");
+    
 }
 
 int main(int argc, char **argv)
@@ -93,10 +62,12 @@ int main(int argc, char **argv)
 
     // Si ya está ordenado, no hacer nada
     if (is_sorted(a))
-        return 0;
-    print_stack(a);
+        return (free_stack(a), 0);
     // Llamar a la función de ordenación (como radix_sort o quick_sort)
-    radix_sort(&a, &b);
-    print_stack(a);
+    quick_sort(&a, &b);
+
+    free_stack(a);
+    free_stack(b);
+
     return 0;
 }

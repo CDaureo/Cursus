@@ -14,20 +14,18 @@
 
 void	rrb(c_stack **b)
 {
-	c_stack	*prev;
-	c_stack	*last;
+	c_stack	*tmp;
 
-	if (!b || !*b || !(*b)->next) // Si hay menos de 2 elementos, no hace nada
-		return ;
-	prev = NULL;
-	last = *b;
-	while (last->next)  // Recorremos hasta el último nodo
+	if (*b && (*b)->next)
 	{
-		prev = last;  // Guardamos el penúltimo nodo
-		last = last->next;
+		tmp = *b;
+		while (tmp->next->next)
+			tmp = tmp -> next;
+		tmp ->next->next = *b;
+		*b = tmp -> next;
+		tmp->next = NULL;
+		write (1, "rrb\n", 4);
 	}
-	prev->next = NULL;  // El penúltimo nodo ahora es el último
-	add_first_stack(b, last);  // Movemos el último nodo al frente
 }
 /*
 * Función optimizada para hacer reverse rotation (rra)

@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "cstring": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "stack_utils.h": "c",
+        "push_swap.h": "c"
     }
 }

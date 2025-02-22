@@ -16,10 +16,15 @@ void	rb(c_stack **b)
 {
 	c_stack	*tmp;
 
-	if (!b || !*b || !(*b)->next) // Si hay menos de 2 elementos, no hace nada
-		return ;
-	tmp = extract(b);  // Extrae el primer nodo
-	add_last_stack(b, tmp);  // Lo agrega al final del stack
-	
+	if (*b && (*b) -> next)
+	{
+		tmp = *b;
+		while (tmp->next)
+			tmp = tmp -> next;
+		tmp->next = *b;
+		*b = (*b) -> next;
+		tmp ->next ->next =NULL;
+		write (1, "rb\n", 3);
+	}
 	
 }

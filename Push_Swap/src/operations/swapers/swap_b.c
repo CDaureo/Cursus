@@ -16,10 +16,10 @@ void	sb(c_stack **b)
 {
 	c_stack	*tmp;
 
-	if (!b || !*b || !(*b)->next)
+	if (*b && (*b) -> next)
 		return ;
-	tmp = (*b)->next; //Guarda el valor del primer nodo en una variable temporal
-	(*b)->next = tmp->next;
-	tmp ->next = *b;
-	*b = tmp;
+	tmp = (*b)->value; //Guarda el valor del primer nodo en una variable temporal
+	(*b)->value = (*b) -> next -> value;
+	(*b) -> next -> value = tmp;
+	write (1, "sb\n", 3);
 }

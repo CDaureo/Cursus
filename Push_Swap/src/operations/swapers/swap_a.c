@@ -16,10 +16,10 @@ void	sa(c_stack **a)
 {
 	c_stack	*tmp;
 
-	if (!a || !*a || !(*a)->next)
+	if (*a && (*a) -> next)
 		return ;
-	tmp = (*a)->next; //Guarda el valor del primer nodo en una variable temporal
-	(*a)->next = tmp->next;
-	tmp ->next = *a;
-	*a = tmp;
+	tmp = (*a)->value; //Guarda el valor del primer nodo en una variable temporal
+	(*a)->value = (*a) -> next -> value;
+	(*a) -> next -> value = tmp;
+	write (1, "sa\n", 3);
 }

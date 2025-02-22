@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/stack_utils.h"
+#include "../includes/stack_utils.h"
 
 //Crear un nuevo nodo del stack
 c_stack	*new_stack(int c)
@@ -24,42 +24,28 @@ c_stack	*new_stack(int c)
 	new->next = NULL;
 	return(new);
 }
-//Agrega un nodo al final del stack
-void	add_last_stack(c_stack **stack, c_stack *new_stack)
-{
-	c_stack *tmp;
-	if (!stack || !new_stack)
-		return ;
-	if (!*stack)
-		*stack = new_stack;
-	else 
-	{
-		tmp = *stack;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new_stack;
-	}
-}
 
-//Agrega un nodo al inicio del stack
+int is_sorted(c_stack *stack)
+{
+    if (!stack || !stack->next)
+        return 1;  // Si la pila tiene 0 o 1 elemento, ya está ordenada
 
-void	add_first_stack(c_stack **stack, c_stack *new_stack)
-{
-	if (!stack || !new_stack)
-		return ;
-	new_stack->next = *stack;
-	*stack = new_stack;
+    while (stack && stack->next)
+    {
+        if (stack->value > stack->next->value)
+            return 0;  // Si encontramos un valor mayor que el siguiente, no está ordenada
+        stack = stack->next;
+    }
+    return 1;  // Si no encontramos desorden, la pila está ordenada
 }
-//Extrae el primer nodo del stack y lo devuelve
-c_stack *extract (c_stack **stack)
+// Función para añadir un nuevo elemento a la pila
+void push(c_stack **stack, int value)
 {
-	c_stack *first;
-	if (!stack || !(*stack))
-		return (NULL);
-	first = *stack;
-	*stack = (*stack)->next;
-	first->next = NULL;
-	return (first);
+    c_stack *new_node = new_stack(value);
+    if (!new_node)
+        exit(1);  // Manejar error en caso de no poder asignar memoria
+    new_node->next = *stack;
+    *stack = new_node;
 }
 
 // Devuelve el tamaño del stack

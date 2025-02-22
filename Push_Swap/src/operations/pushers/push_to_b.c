@@ -15,10 +15,12 @@
 void	pb(c_stack **a, c_stack **b)
 {
 	c_stack	*tmp;
-
-	if (!a || !*a)  // Si b está vacío, no hace nada
-		return ;
-	write (1, "pb\n", 3);
-	tmp = extract(a);  // Extrae el primer nodo de b
-	add_first_stack(b, tmp);  // Lo agrega al inicio de a
+	if (*a)
+	{
+		tmp = *a;
+		*a= (*a) ->next;
+		tmp -> next = *b;
+		*b = tmp;
+		write(1, "pb\n", 3);
+	}
 }

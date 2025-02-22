@@ -18,4 +18,5 @@ void	rr(c_stack **a, c_stack **b)
 {
 	ra(a);
 	rb(b);
+	write (1, "rr\n", 1);
 }

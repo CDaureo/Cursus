@@ -16,4 +16,5 @@ void	ss(c_stack **a, c_stack **b)
 {
 	sa(a);  
 	sb(b);
+	write (1, "ss\n", 3);
 }
