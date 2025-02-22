@@ -38,6 +38,4 @@ void	rr(c_stack **a, c_stack **b);
 void	rra(c_stack **a);
 void	rrb(c_stack **b);
 void	rrr(c_stack **a, c_stack **b);
-
-
 #endif

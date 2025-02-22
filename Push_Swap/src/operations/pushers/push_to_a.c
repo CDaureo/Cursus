@@ -18,6 +18,7 @@ void	pa(c_stack **a, c_stack **b)
 
 	if (!b || !*b)  // Si b está vacío, no hace nada
 		return ;
+	write (1, "pa\n", 3);
 	tmp = extract(b);  // Extrae el primer nodo de b
 	add_first_stack(a, tmp);  // Lo agrega al inicio de a
 }

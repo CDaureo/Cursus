@@ -18,7 +18,9 @@ SRC = 	src/push_swap.c \
 		src/operations/reverseRotators/last_to_first_a.c \
 		src/operations/reverseRotators/last_to_first_b.c \
 		src/operations/reverseRotators/last_to_first_ab.c \
-		src/utils/utlis.c
+		src/utils/utlis.c \
+		src/sorters/sorting.c \
+		src\utils\validation.c
 
 # Archivos objeto generados a partir de los fuentes
 OBJ = $(SRC:.c=.o)
