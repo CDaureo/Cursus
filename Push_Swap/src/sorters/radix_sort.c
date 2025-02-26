@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:17:21 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/02/11 16:19:33 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:30:25 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ void	radix_sort(c_stack **a, c_stack **b)
 	int 	size;
 	int 	max;
 	int		pushed;
-	c_stack	*stack;
-	
+	int		prevalue;
+	int		value;
+	prevalue = -1;
 	size = stack_size(*a);
 	max = get_max_bits(*a);
+	if (max > 7)
+	max = 7;
 	i=0;
 	while (i < max)
 	{
@@ -57,14 +60,17 @@ void	radix_sort(c_stack **a, c_stack **b)
 		j = 0;
 		while (j < size)
 		{
-			stack = *a;
-			if (((stack->value >> i) & 1) == 0)
+			value = (*a)->value;
+			
+			if (((value >> i) & 1) == 0)
 			{
 				pb(a,b);
 				pushed++;
 			}
 			else{
+				if (value != prevalue) // Solo rota si el valor es diferente al anterior
 				ra(a);
+				prevalue = value; // Actualiza el valor anterior
 			}
 			j++;
 		}
@@ -74,6 +80,9 @@ void	radix_sort(c_stack **a, c_stack **b)
 			pushed--;
 		}
 		i++;
-		}
+	}
 	
 }
+
+
+

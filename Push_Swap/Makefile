@@ -21,9 +21,7 @@ SRC = 	src/push_swap.c \
 		src/utils/utlis.c \
 		src/sorters/radix_sort.c \
 		src/sorters/quick_sort.c \
-		src\utils\validation.c \
-		src/utils/ft_itoa.c
-
+		src/utils/validation.c
 # Archivos objeto generados a partir de los fuentes
 OBJ = $(SRC:.c=.o)
 

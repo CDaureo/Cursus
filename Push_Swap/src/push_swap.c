@@ -23,7 +23,7 @@ c_stack *load_stack(int argc, char **argv)
     i = argc - 1;
     while (i > 0)
 	{
-		val = ft_itoa(argv[i]);
+		val = atoi(argv[i]);
 		push(&stack, val);
 		i--;
 	}
@@ -64,8 +64,7 @@ int main(int argc, char **argv)
     if (is_sorted(a))
         return (free_stack(a), 0);
     // Llamar a la función de ordenación (como radix_sort o quick_sort)
-    radix_sort(&a, &b);
-
+    quick_sort(&a, &b);
     free_stack(a);
     free_stack(b);
 

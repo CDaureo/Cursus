@@ -14,7 +14,7 @@
 
 void	sb(c_stack **b)
 {
-	c_stack	*tmp;
+	int tmp;
 
 	if (*b && (*b) -> next)
 		return ;

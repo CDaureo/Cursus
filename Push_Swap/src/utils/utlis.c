@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/stack_utils.h"
+#include "../../includes/stack_utils.h"
 
 //Crear un nuevo nodo del stack
 c_stack	*new_stack(int c)
@@ -27,16 +27,13 @@ c_stack	*new_stack(int c)
 
 int is_sorted(c_stack *stack)
 {
-    if (!stack || !stack->next)
-        return 1;  // Si la pila tiene 0 o 1 elemento, ya está ordenada
-
     while (stack && stack->next)
     {
         if (stack->value > stack->next->value)
-            return 0;  // Si encontramos un valor mayor que el siguiente, no está ordenada
+            return (0); // No está ordenado
         stack = stack->next;
     }
-    return 1;  // Si no encontramos desorden, la pila está ordenada
+    return (1); // Está ordenado
 }
 // Función para añadir un nuevo elemento a la pila
 void push(c_stack **stack, int value)
