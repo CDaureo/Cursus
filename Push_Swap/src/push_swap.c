@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     if (is_sorted(a))
         return (free_stack(a), 0);
     // Llamar a la función de ordenación (como radix_sort o quick_sort)
-    quick_sort(&a, &b);
+    radix_sort(&a, &b);
 
     free_stack(a);
     free_stack(b);
