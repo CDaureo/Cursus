@@ -20,7 +20,6 @@ SRC = 	src/push_swap.c \
 		src/operations/reverseRotators/last_to_first_ab.c \
 		src/utils/utlis.c \
 		src/sorters/radix_sort.c \
-		src/sorters/quick_sort.c \
 		src/utils/validation.c
 # Archivos objeto generados a partir de los fuentes
 OBJ = $(SRC:.c=.o)

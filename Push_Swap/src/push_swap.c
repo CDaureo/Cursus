@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 11:37:45 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/02/19 11:37:45 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:26:59 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     if (is_sorted(a))
         return (free_stack(a), 0);
     // Llamar a la función de ordenación (como radix_sort o quick_sort)
-    quick_sort(&a, &b);
+    radix_sort(&a, &b);
     free_stack(a);
     free_stack(b);
 
