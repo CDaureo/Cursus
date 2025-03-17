@@ -1,0 +1,16 @@
+open() / close() → Para manejar archivos.
+pipe() → Para crear una comunicación entre procesos.
+		pipefd[0]: Extremo de lectura.
+		pipefd[1]: Extremo de escritura.
+		Retorna 0 si tiene éxito, o -1 si hay error.
+		Cuando ejecutamos:
+			< infile comando1 | comando2 > outfile
+fork() → Para crear procesos hijo.
+		Después de fork(), ambos procesos (padre e hijo) continúan ejecutando el mismo código, pero con valores diferentes en pid:
+		Si pid == 0, es el proceso hijo.
+		Si pid > 0, es el proceso padre, y pid contiene el PID del hijo.
+		Si pid < 0, hubo un error.
+dup2() → Para redirigir stdin y stdout.
+execve() → Para ejecutar los comandos.
+waitpid() → Para esperar a los procesos hijo.
+perror() / strerror() → Para manejar errores.

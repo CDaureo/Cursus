@@ -1,0 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 18:28:48 by cdaureo-          #+#    #+#             */
+/*   Updated: 2025/03/11 16:40:58 by cdaureo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <fcntl.h>      // open
+#include <unistd.h>     // close, read, write, access, dup, dup2, execve, fork, pipe
+#include <stdlib.h>     // malloc, free, exit
+#include <stdio.h>      // perror
+#include <string.h>     // strerror
+#include <sys/types.h>  // wait, waitpid, fork
+#include <sys/wait.h>   // wait, waitpid
+#include <sys/stat.h>   // open, unlink
+#include "printf.h"
