@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_string.c                                 :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 19:10:22 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/11 16:42:12 by cdaureo-         ###   ########.fr       */
+/*   Created: 2024/09/23 16:49:48 by cdaureo-          #+#    #+#             */
+/*   Updated: 2025/03/17 16:26:37 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/printf.h"
+#include "includes/pipex.h"
 
-int	ft_put_string(char *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	j;
-	int	res;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if (!s)
-		return (ft_put_string("(null)"));
-	while (s[i] != '\0')
+	while (i < n)
 	{
-		res = ft_putchar(s[i]);
-		if (res == -1)
+		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
 		{
-			return (-1);
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		}
-		j += res;
 		i++;
 	}
-	return (j);
+	return (0);
 }

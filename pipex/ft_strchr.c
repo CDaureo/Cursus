@@ -1,18 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_char.c                                   :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 19:24:36 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/11 16:41:46 by cdaureo-         ###   ########.fr       */
+/*   Created: 2024/09/23 16:49:06 by cdaureo-          #+#    #+#             */
+/*   Updated: 2025/03/17 17:04:58 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/printf.h"
+#include "includes/pipex.h"
 
-int	ft_putchar(char c)
+char	*ft_strchr(const char *s, int c)
 {
-	return (write(1, &c, 1));
+	int				i;
+	unsigned char	uc;
+
+	uc = (unsigned char)c;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == uc)
+		{
+			return ((char *)(&s[i]));
+		}
+		else
+			i++;
+	}
+	if (uc == '\0')
+	{
+		return ((char *)(&s[i]));
+	}
+	return (NULL);
 }
+/*
+int main (void)
+{
+	char* s1 = "hohla";
+	printf("%s"	,ft_strchr(s1, 'a'));
+}
+*/

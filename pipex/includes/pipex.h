@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 18:28:48 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/11 16:40:58 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:11:31 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,15 @@
 #include <sys/wait.h>   // wait, waitpid
 #include <sys/stat.h>   // open, unlink
 #include "printf.h"
+
+char	**ft_split(char const *s, char c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strlen(const char *str);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strdup(const char *s);
+char	*ft_cleaner(char *str, char *r);
+void	free_split(char **array);
+void	executer(char *cmd, char **envp);
+

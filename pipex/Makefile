@@ -2,11 +2,11 @@
 NAME = pipex
 
 # Compilador y flags
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror 
 
 # Sources
-SRC = main.c
+SRC = pipex.c ft_split.c ft_strjoin.c ft_strncmp.c pipex_utils.c cleaner.c ft_strnstr.c ft_strchr.c ft_strdup.c free.c
 
 # Los archivos objeto generado a partir de sources
 

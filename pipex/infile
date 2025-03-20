@@ -11,6 +11,16 @@ fork() → Para crear procesos hijo.
 		Si pid > 0, es el proceso padre, y pid contiene el PID del hijo.
 		Si pid < 0, hubo un error.
 dup2() → Para redirigir stdin y stdout.
+		dup2(fd, STDOUT_FILENO): Redirige salida estándar a fd.
+		dup2(fd, STDIN_FILENO): Redirige entrada estándar desde fd.
+		Se usa en combinación con fork() y execve() para gestionar entrada/salida de procesos.
 execve() → Para ejecutar los comandos.
+		pathname: Ruta absoluta o relativa del ejecutable a ejecutar.
+		argv[]: Array de argumentos (el primer argumento debe ser el nombre del programa).
+		envp[]: Array de variables de entorno.
+		execve() reemplaza el proceso actual por otro.
+		Si se usa en el proceso padre, este se perderá.
+		Se combina con fork() para ejecutar procesos sin perder el padre.
+		Se usa con dup2() para redirigir entrada/salida.
 waitpid() → Para esperar a los procesos hijo.
 perror() / strerror() → Para manejar errores.
