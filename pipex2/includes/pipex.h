@@ -19,13 +19,13 @@ typedef struct s_pipex
     char    **cmd_args;
     char    *cmd;
     char    **envp;
-}   t_pipex;
+}   c_pipex;
 
-void    execute_command(t_pipex *px, char *cmd, char **envp);
-void    free_pipex(t_pipex *px);
+void    execute_command(c_pipex *px, char *cmd, char **envp);
+void    free_pipex(c_pipex *px);
 void    error_exit(const char *msg);
 char    *get_command_path(char *cmd, char **envp);
-void    handle_processes(t_pipex *px, char **argv, char **envp);
+void    handle_processes(c_pipex *px, char **argv, char **envp);
 char	**ft_split(char const *s, char c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
