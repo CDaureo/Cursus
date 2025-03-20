@@ -6,14 +6,16 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:04:12 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/20 22:40:44 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:46:43 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void handle_processes(c_pipex *px, char **argv, char **envp)
+void	handle_processes(c_pipex *px, char **argv, char **envp)
 {
+	pid_t pid1;
+	pid_t pid2;
 	if (pipe(px->pipefd) == -1)
 		error_exit("Pipe failed");
 
@@ -25,7 +27,7 @@ void handle_processes(c_pipex *px, char **argv, char **envp)
 	if (px->outfile < 0)
 	error_exit("Error opening outfile");
 
-	pid_t pid1 = fork();
+	pid1 = fork();
 	if (pid1 == 0)
 	{
 		dup2(px->infile, STDIN_FILENO);
@@ -34,14 +36,14 @@ void handle_processes(c_pipex *px, char **argv, char **envp)
 		execute_command(px, argv[2], envp);
 	}
 
-	pid_t pid2 = fork();
+	pid2 = fork();
 	if (pid2 == 0)
 	{
 		dup2(px->pipefd[0], STDIN_FILENO);
 		dup2(px->outfile, STDOUT_FILENO);
 		close(px->pipefd[1]);
 		execute_command(px, argv[3], envp);
-    }
+	}
 
 	close(px->pipefd[0]);
 	close(px->pipefd[1]);
