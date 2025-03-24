@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:19:33 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:18:01 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:25:34 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_split(char ***tmp)
  * @param a Puntero al stack 'a'.
  * @return Un puntero a un arreglo de enteros o NULL si hay un error.
  */
-int	*init_nums(int **c, c_stack **a)
+int	*init_nums(int **c, t_stack **a)
 {
 	int	*nums;
 
@@ -60,7 +60,7 @@ int	*init_nums(int **c, c_stack **a)
  * @param a Puntero al stack 'a'.
  * @return 0 si todo está bien, -1 si ocurre un error.
  */
-int	parser(const char *arg, int *nums, int *c, c_stack **a)
+int	parser(const char *arg, int *nums, int *c, t_stack **a)
 {
 	char	**str;
 
@@ -91,7 +91,7 @@ int	parser(const char *arg, int *nums, int *c, c_stack **a)
  * @param a Puntero al stack 'a'.
  * @return 0 si todo está bien, -1 si ocurre un error.
  */
-int	parser_str(char **str, int *nums, int *c, c_stack **a)
+int	parser_str(char **str, int *nums, int *c, t_stack **a)
 {
 	int	j;
 
@@ -118,7 +118,7 @@ int	parser_str(char **str, int *nums, int *c, c_stack **a)
  * @return 0 si el número es válido, -1 si hay un error.
  */
 int	validator(const char *str, int *nums, int *c,
-		c_stack **a)
+		t_stack **a)
 {
 	int	comparer;
 

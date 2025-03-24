@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:32:58 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:18:42 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:25:34 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
  * @param a Puntero al stack 'a'.
  * @return 1 si la pila está ordenada, 0 si no lo está.
  */
-int	is_sorted(c_stack **a)
+int	is_sorted(t_stack **a)
 {
-	c_stack	*tmp;
+	t_stack	*tmp;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return (1);
@@ -40,9 +40,9 @@ int	is_sorted(c_stack **a)
  * @param a Puntero a la pila 'a'.
  * @return 1 si hay duplicados, 0 si no los hay.
  */
-int	duplicates(c_stack *a)
+int	duplicates(t_stack *a)
 {
-	c_stack	*tmp;
+	t_stack	*tmp;
 
 	while (a)
 	{

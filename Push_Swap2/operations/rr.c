@@ -6,14 +6,13 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:05:24 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 16:09:28 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:28:02 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../push_swap.h"
 
-void	rr(c_stack **a, c_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	ra(a, 0);
 	rb(b, 0);

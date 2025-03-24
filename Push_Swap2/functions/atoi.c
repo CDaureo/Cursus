@@ -6,12 +6,11 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:31:46 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 16:32:09 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:25:57 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 static int	check_spaces(const char *str)
 {

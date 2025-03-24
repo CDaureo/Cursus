@@ -6,17 +6,16 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:05:19 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:05:09 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:28:00 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../push_swap.h"
 
-void	ra(c_stack **a, int p)
+void	ra(t_stack **a, int p)
 {
-	c_stack	*first;
-	c_stack	*current;
+	t_stack	*first;
+	t_stack	*current;
 
 	first = *a;
 	current = *a;

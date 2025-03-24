@@ -6,12 +6,11 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:24:56 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 16:25:01 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:27:07 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 static int	ft_count_words(char const *s, char c)
 {

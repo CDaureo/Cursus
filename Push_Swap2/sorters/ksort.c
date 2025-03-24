@@ -6,11 +6,12 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:12:34 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:21:40 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:28:32 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 /**
  * Calcula la raíz cuadrada entera más cercana de un número.
  * @param nbr El número del que se calculará la raíz cuadrada.
@@ -27,14 +28,16 @@ int	ft_sqrt(int nbr)
 		i++;
 	return (i - 1);
 }
+
 /**
- * Empuja elementos del stack 'a' al stack 'b' usando un rango basado en la raíz cuadrada.
+ * Empuja elementos del stack 'a' al stack 'b' usando 
+ * un rango basado en la raíz cuadrada.
  * @param a Puntero al stack 'a'.
  * @param b Puntero al stack 'b'.
  * @param size_a Puntero al tamaño de 'a'.
  * @param size_b Puntero al tamaño de 'b'.
  */
-static void	push_b(c_stack **a, c_stack **b, int *size_a, int *size_b)
+static void	push_b(t_stack **a, t_stack **b, int *size_a, int *size_b)
 {
 	int	range;
 
@@ -61,14 +64,16 @@ static void	push_b(c_stack **a, c_stack **b, int *size_a, int *size_b)
 			ra(a, 1);
 	}
 }
+
 /**
- * Empuja elementos del stack 'b' de vuelta al stack 'a' en el orden correcto.
+ * Empuja elementos del stack 'b' de vuelta al stack 'a' 
+ * en el orden correcto.
  * @param a Puntero al stack 'a'.
  * @param b Puntero al stack 'b'.
  * @param size_a Puntero al tamaño de 'a'.
  * @param size_b Puntero al tamaño de 'b'.
  */
-static void	push_a(c_stack **a, c_stack **b, int *size_a,
+static void	push_a(t_stack **a, t_stack **b, int *size_a,
 		int *size_b)
 {
 	while (*size_b > 0)
@@ -91,14 +96,13 @@ static void	push_a(c_stack **a, c_stack **b, int *size_a,
  * @param a Puntero al stack 'a'.
  * @param b Puntero al stack 'b'.
  */
-void	ksort(c_stack **a, c_stack **b)
+void	ksort(t_stack **a, t_stack **b)
 {
 	int	size_a;
 	int	size_b;
 
 	size_a = list_size(*a);
 	size_b = list_size(*b);
-
 	push_b(a, b, &size_a, &size_b);
 	push_a(a, b, &size_a, &size_b);
 }

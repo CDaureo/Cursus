@@ -23,6 +23,7 @@ int	ft_strlen(const char *str)
 	}
 	return (counter);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new_str;

@@ -6,16 +6,15 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:05:08 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 16:09:30 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:27:57 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../push_swap.h"
 
-void	pa(c_stack **a, c_stack **b, int p)
+void	pa(t_stack **a, t_stack **b, int p)
 {
-	c_stack	*first_node;
+	t_stack	*first_node;
 
 	if (*b == NULL)
 		return ;

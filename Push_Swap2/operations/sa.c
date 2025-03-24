@@ -6,16 +6,16 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:05:43 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:05:29 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:25:34 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sa(c_stack **a, int p)
+void	sa(t_stack **a, int p)
 {
-	c_stack	*first;
-	c_stack	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;

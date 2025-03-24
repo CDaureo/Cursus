@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:56:37 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:23:18 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:25:34 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * @return Un arreglo de enteros o NULL si ocurre un error.
  */
 static int	*int_to_array(const char *argv[], int argc, int *c,
-		c_stack **a)
+		t_stack **a)
 {
 	int	i;
 	int	*nums;
@@ -32,22 +32,23 @@ static int	*int_to_array(const char *argv[], int argc, int *c,
 		return (NULL);
 	while (i < argc)
 	{
-		if ((ft_strcmp((char *)argv[1], "") == 0) 
-		|| parser(argv[i], nums, c, a) == -1)
+		if ((ft_strcmp((char *)argv[1], "") == 0)
+			|| parser(argv[i], nums, c, a) == -1)
 			return (free(nums), NULL);
 		i++;
 	}
 	return (nums);
 }
+
 /**
  * Crea un nuevo nodo para la pila y lo añade al final.
  * @param content Puntero al contenido que se almacenará en el nuevo nodo.
  * @param a Puntero a la pila donde se añadirá el nodo.
  * @return 0 en caso de éxito, 1 en caso de fallo.
  */
-static int	new_node(int *contnent, c_stack **a)
+static int	new_node(int *contnent, t_stack **a)
 {
-	c_stack	*new_node;
+	t_stack	*new_node;
 	int		*cpy;
 
 	cpy = malloc(sizeof(int));
@@ -72,7 +73,7 @@ static int	new_node(int *contnent, c_stack **a)
  * @param a Puntero a la pila donde se almacenarán los números.
  * @return 0 en caso de éxito, 1 en caso de fallo.
  */
-static int	arguments(int argc, char const *argv[], c_stack **a)
+static int	arguments(int argc, char const *argv[], t_stack **a)
 {
 	int	i;
 	int	*nums;
@@ -101,8 +102,8 @@ static int	arguments(int argc, char const *argv[], c_stack **a)
  */
 int	main(int argc, char const *argv[])
 {
-	c_stack	*a;
-	c_stack	*aux;
+	t_stack	*a;
+	t_stack	*aux;
 
 	a = NULL;
 	aux = NULL;

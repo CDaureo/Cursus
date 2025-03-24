@@ -6,17 +6,16 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:05:22 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:05:12 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:28:01 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../push_swap.h"
 
-void	rb(c_stack **a, int p)
+void	rb(t_stack **a, int p)
 {
-	c_stack	*first;
-	c_stack	*current;
+	t_stack	*first;
+	t_stack	*current;
 
 	if (!a || !(*a) || !((*a)->next))
 		return ;

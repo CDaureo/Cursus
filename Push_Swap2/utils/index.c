@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:35:43 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:16:51 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:28:55 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	bsort(int *arr, int n)
  * @param size Tamaño de la lista.
  * @return Un arreglo de enteros con los valores de la lista.
  */
-int	*list_to_array(c_stack *a, int size)
+int	*list_to_array(t_stack *a, int size)
 {
 	int		*arr;
 	int		i;
-	c_stack	*tmp;
+	t_stack	*tmp;
 
 	i = 0;
 	tmp = a;
@@ -70,15 +70,16 @@ int	*list_to_array(c_stack *a, int size)
 }
 
 /**
- * Asigna un índice a cada elemento de la pila 'a' basado en el orden de los valores.
+ * Asigna un índice a cada elemento de la pila 'a' 
+ * basado en el orden de los valores.
  * @param a Puntero a la pila 'a'.
  * @param arr Arreglo con los valores ordenados.
  * @param size Tamaño de la lista.
  */
-void	index_assign(c_stack *a, int *arr, int size)
+void	index_assign(t_stack *a, int *arr, int size)
 {
 	int		i;
-	c_stack	*tmp;
+	t_stack	*tmp;
 
 	i = 0;
 	while (i < size)
@@ -98,11 +99,12 @@ void	index_assign(c_stack *a, int *arr, int size)
 }
 
 /**
- * Establece los índices para los elementos de la pila 'a' basándose en el orden de los valores.
+ * Establece los índices para los elementos de la pila 'a'
+  basándose en el orden de los valores.
  * @param a Puntero al puntero de la pila 'a'.
  * @return La pila 'a' con los índices asignados.
  */
-c_stack	*set_index(c_stack **a)
+t_stack	*set_index(t_stack **a)
 {
 	int	size;
 	int	*arr;
