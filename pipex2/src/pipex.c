@@ -6,11 +6,27 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:04:12 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/24 19:36:33 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:53:28 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+static void	child_process1(t_pipex *px, char *cmd, char **envp)
+{
+	dup2(px->infile, STDIN_FILENO);
+	dup2(px->pipefd[1], STDOUT_FILENO);
+	close(px->pipefd[0]);
+	execute_command(px, cmd, envp);
+}
+
+static void	child_process2(t_pipex *px, char *cmd, char **envp)
+{
+	dup2(px->pipefd[0], STDIN_FILENO);
+	dup2(px->outfile, STDOUT_FILENO);
+	close(px->pipefd[1]);
+	execute_command(px, cmd, envp);
+}
 
 void	handle_processes(t_pipex *px, char **argv, char **envp)
 {
@@ -27,20 +43,10 @@ void	handle_processes(t_pipex *px, char **argv, char **envp)
 		error_exit("Error opening outfile");
 	pid1 = fork();
 	if (pid1 == 0)
-	{
-		dup2(px->infile, STDIN_FILENO);
-		dup2(px->pipefd[1], STDOUT_FILENO);
-		close(px->pipefd[0]);
-		execute_command(px, argv[2], envp);
-	}
+		child_process1(px, argv[2], envp);
 	pid2 = fork();
 	if (pid2 == 0)
-	{
-		dup2(px->pipefd[0], STDIN_FILENO);
-		dup2(px->outfile, STDOUT_FILENO);
-		close(px->pipefd[1]);
-		execute_command(px, argv[3], envp);
-	}
+		child_process2(px, argv[3], envp);
 	close(px->pipefd[0]);
 	close(px->pipefd[1]);
 	waitpid(pid1, NULL, 0);
