@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 11:37:45 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/06 17:26:59 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:52:28 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,9 @@ int main(int argc, char **argv)
     c_stack *b = NULL;
 
     if (argc < 2)
-        return 0;  // No hay nada que hacer si no hay argumentos
-
-    // Validación de los argumentos
+        return 0;
     if (validate_args(argc, argv) == -1)
-    {
-        write(2, "Error\n", 6);
         return 1;
-    }
 
     // Cargar los números en la pila 'a'
     a = load_stack(argc, argv);

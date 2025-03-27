@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:09:16 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/27 14:09:53 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:30:58 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void get_map_size(char *file, t_game *game)
         perror("Error al abrir el mapa");
         exit(1);
     }
-    
-    while ((line = get_next_line(fd)))
+    line = get_next_line(fd);
+    while ((line))
     {
         if (columns == 0)
             columns = strlen(line) - 1; // Restamos 1 para ignorar '\n'
 		rows++;
-        free(line);
+		line = get_next_line(fd);
     }
     close(fd);
 
     game->width = columns * TILE_SIZE;
-    game->height = (rows - 1) * TILE_SIZE;
+    game->height = rows * TILE_SIZE;
 	game->map = load_map(file, rows);
 }
 
@@ -98,11 +98,11 @@ char **load_map(char *file, int rows)
 		line = get_next_line(fd);
 		
 		printf("Paso 3: Línea obtenida: %s\n", line);
-    while ((line = get_next_line(fd)))
+    while (line)
     {
 		printf("Paso %d: Línea obtenida: %s\n",i + 4, line);
-		
         map[i++] = line;
+		line = get_next_line(fd);
     }
     map[i] = NULL;
     return (map);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:18:15 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/02/11 16:18:16 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:55:09 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ int validate_args(int argc, char **argv)
     for (int i = 1; i < argc; i++)
     {
         if (!is_valid_number(argv[i]))  // Si el número no es válido
-            return (write(1, "F", 1), -1);
+            return (write(2, "Error", 6), -1);
     }
 
     // Verificar si hay duplicados
     if (has_duplicates(argc, argv))
-        return -1;  // Si hay duplicados, es un error
+		return (write(2,"dupe", 4), -1);
+
 
     return 0;  // Todo es válido
 }
