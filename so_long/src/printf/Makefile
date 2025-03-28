@@ -27,9 +27,7 @@ MSG_ERROR = $(RED)[ERROR] $(RESET)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "$(MSG_START) Creando la librería estática 'libftprintf.a'..."
 	@ar -rc $(NAME) $(OBJ)
-	@echo "$(MSG_DONE) Librería 'libftprintf.a' creada exitosamente!"
 
 # Compilación de archivos objeto (.o)
 %.o: %.c

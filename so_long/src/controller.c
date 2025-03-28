@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 00:49:57 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/28 00:53:56 by cdaureo-         ###   ########.fr       */
+/*   Created: 2025/03/28 01:51:59 by cdaureo-          #+#    #+#             */
+/*   Updated: 2025/03/28 01:57:31 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,27 @@ static void	move_player(t_game *game, int x, int y)
 	{
 		game->collected++;
 		ft_printf("Collected: %d/%d\n", game->collected, game->total_collectibles);
+		game->map[y][x] = VOID;
 	}
-	if (game->map[y][x] == EXIT && game->collected == game->total_collectibles)
+	if (game->map[y][x] == EXIT)
 	{
-		ft_printf("Juego terminado en %d movimientos.\n", game->moves);
-		mlx_destroy_window(game->mlx, game->win);
-		exit(0);
+		if (game->collected == game->total_collectibles)
+		{
+			game->moves++;
+			ft_printf("Juego terminado en %d movimientos.\n", game->moves);
+			mlx_destroy_window(game->mlx, game->win);
+			exit(0);
+		}
+		else
+			return;
 	}
-	
-	game->map[game->player_y][game->player_x] = VOID;
+	if (game->map[game->player_y][game->player_x] != EXIT && game->map[game->player_y][game->player_x] != COLLECTIBLE)
+		game->map[game->player_y][game->player_x] = VOID;
 	game->map[y][x] = PLAYER;
 	game-> player_x = x;
 	game-> player_y = y;
-	game->moves++; // Aumenta el contador de movimientos
+	game->moves++;
 	draw_map(game);
-
 }
 
 void find_player(t_game *game)
@@ -47,16 +53,16 @@ void find_player(t_game *game)
 	x = 0;
 	while (game->map[y][x])
 	{
-	    if (game->map[y][x] ==  PLAYER)
-	    {
+		if (game->map[y][x] ==  PLAYER)
+		{
 			game->player_x = x;
 			game->player_y = y;
 		return;
-	    }
-	    x++;
+		}
+		x++;
 	}
 	y++;
-    }
+	}
 }
 
 int	handle_keypress(int key, t_game *game)
@@ -66,6 +72,7 @@ int	handle_keypress(int key, t_game *game)
 	if (ESC_KEY == key)
 	{
 		mlx_destroy_window(game->mlx,game->win);
+		ft_printf("Closing game\n");
 		exit(0);
 	}
 	else if (key == KEY_W)
@@ -93,10 +100,11 @@ int	handle_keypress(int key, t_game *game)
 
 void count_collectibles(t_game *game)
 {
-	int x, y;
+	int x;
+	int y;
 
 	game->total_collectibles = 0;
-
+	game->collected = 0;
 	y = 0;
 	while (game->map[y])
 	{

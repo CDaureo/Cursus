@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:21:56 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/28 00:55:02 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/28 01:36:00 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,6 @@ int		handle_keypress(int key, t_game *game);
 void 	find_player(t_game *game);
 void	count_collectibles(t_game *game);
 int		ft_printf(char const *c, ...);
+char	*ft_itoa(int n);
+void	get_map_size(char *file, t_game *game);
 #endif
