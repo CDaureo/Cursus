@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdaureo- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:59:53 by cdaureo-          #+#    #+#             */
-/*   Updated: 2024/10/23 14:02:55 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/28 00:48:19 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*
- * new_line:
- * - This function extracts a line from `str_storage` until the first newline character (`\n`).
- * - It finds the position of the newline using `ft_strchr`, calculates the length of the line,
- *   and creates a substring containing everything from the start up to the newline.
- * - The function returns the extracted line or `NULL` if there's an error.
- */
 static char	*new_line(char *str_storage)
 {
 	char	*line;
@@ -33,14 +26,6 @@ static char	*new_line(char *str_storage)
 	return (line);
 }
 
-/*
- * cleaner:
- * - This function cleans up `str_storage` after a line is extracted.
- * - It locates the newline character (`\n`) and creates a new string starting from the
- *   character right after the newline, copying the remaining data into `new_storage`.
- * - If there's no more data after the newline, the function frees `str_storage` and returns `NULL`.
- * - If the new storage allocation fails, it also frees `str_storage` and returns `NULL`.
- */
 static char	*cleaner(char *str_storage)
 {
 	char	*new_storage;
@@ -54,13 +39,6 @@ static char	*cleaner(char *str_storage)
 	return (new_storage);
 }
 
-/*
- * reader:
- * - This function reads data from the file descriptor (`fd`) into a buffer.
- * - It appends the read data to `str_storage`, creating a new temporary storage using `ft_strjoin`.
- * - The function reads until it encounters a newline (`\n`) or the end of the file.
- * - If there's an error, it frees the allocated memory and returns `NULL`.
- */
 static char	*reader(int fd, char *str_storage)
 {
 	ssize_t	i;
@@ -85,14 +63,7 @@ static char	*reader(int fd, char *str_storage)
 		return (free(str_storage), NULL);
 	return (str_storage);
 }
-/*
- * get_next_line:
- * - This is the main function that reads and returns the next line from the file.
- * - It uses a static variable `str_storage` to store the data between multiple function calls.
- * - If there’s no data in storage or if there’s no newline, it reads more data from the file.
- * - Once it has a complete line, it extracts the line using `new_line` and updates the storage using `clean_storage`.
- * - It returns the extracted line, or `NULL` if an error occurs or the file is empty.
- */
+
 char	*get_next_line(int fd)
 {
 	static char *str_storage = NULL;

@@ -6,13 +6,14 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:21:56 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:25:58 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/28 00:55:02 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 # include "../src/gnl/get_next_line.h"
+# include "../src/printf/printf.h"
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -60,4 +61,5 @@ void	init_textures(t_game *game);
 int		handle_keypress(int key, t_game *game);
 void 	find_player(t_game *game);
 void	count_collectibles(t_game *game);
+int		ft_printf(char const *c, ...);
 #endif
