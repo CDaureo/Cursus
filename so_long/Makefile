@@ -17,7 +17,7 @@ FT_PRINTF_OBJS = $(FT_PRINTF_DIR)/ft_handle_unsigned.o \
                  $(FT_PRINTF_DIR)/ft_handle_hex_int_uc.o
 
 # Archivos fuente y objetos del proyecto 'so_long'
-SRCS = src/main.c src/textures.c src/controller.c src/ft_itoa.c src/maps.c \
+SRCS = src/main.c src/textures.c src/controller.c src/ft_itoa.c src/maps.c src/validation.c \
        src/gnl/get_next_line.c src/gnl/get_next_line_utils.c 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,13 +6,11 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 00:49:48 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/28 01:38:52 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/28 02:43:38 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-
 
 int close_window(t_game *game)
 {
@@ -29,11 +27,23 @@ int main(int argc, char **argv)
 		ft_printf("Uso: ./so_long <mapa.ber>\n");
 		return (1);
 	}
-		
-	ft_printf("Leyendo mapa: %s\n", argv[1]);
 	get_map_size(argv[1], &game);
-	ft_printf("Dimensiones -> Ancho: %d px, Alto: %d px\n", game.width, game.height);
 
+	if (!is_map_rectangular(game.map))
+    {
+		ft_printf("Error: El mapa debe ser rectangular.\n");
+		return (1);
+    }
+
+    // Verificar si el mapa está cerrado (rodeado de muros)
+    if (!is_map_closed(game.map))
+    {
+        ft_printf("Error: El mapa debe estar cerrado (rodeado de muros).\n");
+        return (1);
+    }      
+
+	ft_printf("Leyendo mapa: %s\n", argv[1]);
+	ft_printf("Dimensiones -> Ancho: %d px, Alto: %d px\n", game.width, game.height);
 	ft_printf("Inicializando MiniLibX...\n");
 	game.mlx = mlx_init();
 

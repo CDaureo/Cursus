@@ -6,7 +6,7 @@
 /*   By: cdaureo- <cdaureo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 01:28:57 by cdaureo-          #+#    #+#             */
-/*   Updated: 2025/03/28 01:58:32 by cdaureo-         ###   ########.fr       */
+/*   Updated: 2025/03/28 02:27:18 by cdaureo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,13 @@ char **load_map(char *file, int rows)
 		ft_printf("Paso 2: Leyendo primera línea...\n");
 		line = get_next_line(fd);
 	while (line)
-	{
+	{ 
+		if (line[ft_strlen(line) - 1] == '\n')
+			line[ft_strlen(line) - 1] = '\0';
 		ft_printf("Paso %d: Línea obtenida: %s\n",i + 3, line);
 		map[i++] = line;
 		line = get_next_line(fd);
 	}
 	
-	return (map[i] = NULL, map);
+	return (map[i] = NULL, close (fd), map);
 }
